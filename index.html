@@ -1544,8 +1544,12 @@ document.getElementById('exportBtn').addEventListener('click', async () => {
       imageTimeout: 8000,
       width: rect.width,
       height: rect.height,
-      windowWidth: rect.width,
-      windowHeight: rect.height,
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+      x: rect.left,
+      y: rect.top,
+      scrollX: -window.scrollX,
+      scrollY: -window.scrollY,
     });
     canvas.toBlob(blob => {
       const url = URL.createObjectURL(blob);
